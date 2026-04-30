@@ -381,6 +381,14 @@ section h2 {
   text-align: center;
 }
 
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--dusty-blue-dark);
+  margin-top: 0.5rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
 /* "Click to flip" hint on the front */
 .card-front::after {
   content: 'click to flip';
@@ -584,6 +592,44 @@ section h2 {
   display: block;
 }
 
+/* ─── Contact Links ─── */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+}
+
+.contact-link:hover {
+  background: var(--dusty-blue-light);
+  color: var(--text-primary);
+  border-color: var(--dusty-blue);
+}
+
+.contact-link-arrow {
+  transition: transform 0.3s ease;
+}
+
+.contact-link:hover .contact-link-arrow {
+  transform: translateX(3px);
+}
+
 /* ─── Footer ─── */
 footer {
   text-align: center;
@@ -687,10 +733,17 @@ footer {
 body {
   opacity: 0;
   transition: opacity 0.4s ease;
+  animation: fallback-show 0s 0.5s forwards;
+}
+
+/* Safety net: if JS never adds page-loaded, show the page after 0.5s anyway */
+@keyframes fallback-show {
+  to { opacity: 1; }
 }
 
 body.page-loaded {
   opacity: 1;
+  animation: none;
 }
 
 body.page-leaving {
@@ -846,18 +899,6 @@ body.page-leaving {
   body, a, button, .card, input, textarea {
     cursor: none !important;
   }
-}
-
-/* ─── Scroll Fade-In ─── */
-.scroll-fade {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.scroll-fade.scroll-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ─── Responsive additions ─── */

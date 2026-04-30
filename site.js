@@ -66,22 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-  /* ─── Scroll Fade-In ─── */
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('scroll-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
-
 });

@@ -15,6 +15,7 @@
                 <li><a href="index.html">About Me</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.pdf" target="_blank">Resume</a></li>
             </ul>
         </nav>
     </header>
@@ -22,7 +23,17 @@
     <main>
         <section id="contact">
             <h2>Contact Me</h2>
-            <form id="contact-form" action="mailto:kellylsu@usc.edu" action="thank-you.html" method="POST">
+            <div class="contact-links">
+                <a href="www.linkedin.com/in/kellylsu" target="_blank" class="contact-link">
+                    <span class="contact-link-label">LinkedIn</span>
+                    <span class="contact-link-arrow">&rarr;</span>
+                </a>
+                <a href="https://github.com/kelly-su" target="_blank" class="contact-link">
+                    <span class="contact-link-label">GitHub</span>
+                    <span class="contact-link-arrow">&rarr;</span>
+                </a>
+            </div>
+            <form id="contact-form" action="mailto:kelly-su@outlook.com" action="thank-you.html" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -43,7 +54,7 @@
         <p>&copy; 2026 Kelly Su</p>
     </footer>
 
-    <script src="shared.js"></script>
+    <script src="site.js"></script>
     <script>
         const form = document.getElementById('contact-form');
         const confirmationMessage = document.getElementById('confirmation-message');
