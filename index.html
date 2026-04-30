@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Kelly Su's Personal Website</h1>
+        <h1>Kelly Su</h1>
         <nav>
             <ul>
                 <li><a href="index.html">About Me</a></li>
@@ -21,18 +21,92 @@
 
     <main>
         <section id="welcome">
-            <h1>Welcome to My Digital Portfolio</h1>
-            <p>Hi, my name is Kelly Su! I’m a junior at the University of Southern California, pursuing a dual degree in Computer Science and Business Administration. I have a passion for how technology drives business innovation and am eager to explore career opportunities in product management.</p>
             <div id="profile-container">
                 <img src="img/profile.jpg" alt="Kelly Su's Headshot" id="profile-pic">
             </div>
+            <p id="greeting" class="greeting-text"></p>
+            <h1 id="typewriter" class="typewriter-text"></h1>
+            <p class="welcome-subtitle">CS & Business Administration @ USC · Class of 2026</p>
         </section>
 
-        <section id="about-me">
+        <!-- Skills Marquee -->
+        <div class="marquee-wrapper scroll-fade">
+            <div class="marquee-track">
+                <span class="marquee-pill">React</span>
+                <span class="marquee-pill">TypeScript</span>
+                <span class="marquee-pill">Next.js</span>
+                <span class="marquee-pill">Swift</span>
+                <span class="marquee-pill">SwiftUI</span>
+                <span class="marquee-pill">Node.js</span>
+                <span class="marquee-pill">MongoDB</span>
+                <span class="marquee-pill">Firebase</span>
+                <span class="marquee-pill">Python</span>
+                <span class="marquee-pill">R</span>
+                <span class="marquee-pill">SQL</span>
+                <span class="marquee-pill">Java</span>
+                <span class="marquee-pill">HTML/CSS</span>
+                <span class="marquee-pill">Git</span>
+                <span class="marquee-pill">Figma</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="marquee-pill">React</span>
+                <span class="marquee-pill">TypeScript</span>
+                <span class="marquee-pill">Next.js</span>
+                <span class="marquee-pill">Swift</span>
+                <span class="marquee-pill">SwiftUI</span>
+                <span class="marquee-pill">Node.js</span>
+                <span class="marquee-pill">MongoDB</span>
+                <span class="marquee-pill">Firebase</span>
+                <span class="marquee-pill">Python</span>
+                <span class="marquee-pill">R</span>
+                <span class="marquee-pill">SQL</span>
+                <span class="marquee-pill">Java</span>
+                <span class="marquee-pill">HTML/CSS</span>
+                <span class="marquee-pill">Git</span>
+                <span class="marquee-pill">Figma</span>
+            </div>
+        </div>
+
+        <section id="about-me" class="scroll-fade">
             <h2>About Me</h2>
-            <p><strong>Academic Background:</strong> Bachelor of Science, Computer Science/Business Administration, University of Southern California, Graduation May 2026.</p>
-            <p><strong>Interests:</strong> Cafe hopping, badminton, and traveling.</p>
+            <p>Hi, my name is Kelly Su! I’m a senior at the University of Southern California, pursuing a dual degree in Computer Science and Business Administration. I’m interested in the intersection of technology, business, and user experience, with experience in full-stack development, data-driven applications, and collaborative software projects. I’m currently exploring opportunities in software engineering and data-focused technical roles.</p>
+            <p><strong>Interests:</strong> Cafe hopping, badminton, traveling, gaming.</p>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2026 Kelly Su</p>
+    </footer>
+
+    <script src="shared.js"></script>
+    <script>
+        /* ─── Time-of-Day Greeting ─── */
+        const greetingEl = document.getElementById('greeting');
+        const hour = new Date().getHours();
+        let greeting = 'Good evening';
+        if (hour < 12) greeting = 'Good morning';
+        else if (hour < 17) greeting = 'Good afternoon';
+        greetingEl.textContent = greeting + ' — ';
+
+        /* ─── Typewriter Effect ─── */
+        const typewriterEl = document.getElementById('typewriter');
+        const fullText = "Hi, I'm Kelly.";
+        let charIndex = 0;
+
+        function typeNext() {
+            if (charIndex < fullText.length) {
+                typewriterEl.textContent += fullText[charIndex];
+                charIndex++;
+                setTimeout(typeNext, 90 + Math.random() * 60);
+            } else {
+                // Remove blinking cursor after typing finishes
+                setTimeout(() => {
+                    typewriterEl.classList.add('typing-done');
+                }, 1500);
+            }
+        }
+
+        // Small delay before typing starts
+        setTimeout(typeNext, 600);
+    </script>
 </body>
 </html>

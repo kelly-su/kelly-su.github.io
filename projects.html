@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Kelly Su's Personal Website</h1>
+        <h1>Kelly Su</h1>
         <nav>
             <ul>
                 <li><a href="index.html">About Me</a></li>
@@ -61,8 +61,23 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h2>ChatPet</h2>
+                            <p>A virtual companion app where users raise, feed, and chat with an AI-powered pet. Built with React Native and integrated with AI chat.</p>
+                        </div>
+                        <div class="card-back card-back-multi">
+                            <img src="img/chatpet-login.png" alt="ChatPet login screen">
+                            <img src="img/chatpet-home.png" alt="ChatPet home screen with virtual pet">
+                            <img src="img/chatpet-chat.png" alt="ChatPet chat interface">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <section id="weather-demo">
+            <section id="weather-demo" class="scroll-fade">
                 <h2>Weather App Video Demonstration</h2>
                 <video controls width="800">
                     <source src="video/weatherapp_demo.mp4" type="video/mp4">
@@ -73,26 +88,44 @@
         </section>
     </main>
 
+    <footer>
+        <p>&copy; 2026 Kelly Su</p>
+    </footer>
+
+    <script src="shared.js"></script>
     <script>
-        // Track which card is flipped so we can manage click flow
         let lightboxOpen = false;
 
         document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                // If lightbox is open, don't do anything (lightbox handles its own close)
+            const cardBack = card.querySelector('.card-back');
+            const cardFront = card.querySelector('.card-front');
+            const backImg = cardBack?.querySelector('img');
+
+            // Clicking the front flips to back
+            cardFront.addEventListener('click', () => {
                 if (lightboxOpen) return;
-
-                const isFlipped = card.classList.contains('flipped');
-
-                // If card is flipped and user clicked the image, open lightbox
-                if (isFlipped && e.target.tagName === 'IMG') {
-                    openLightbox(e.target.src, e.target.alt);
-                    return;
-                }
-
-                // Otherwise toggle the flip
-                card.classList.toggle('flipped');
+                card.classList.add('flipped');
             });
+
+            // Clicking the image on the back opens lightbox
+            if (backImg) {
+                backImg.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (lightboxOpen) return;
+                    openLightbox(backImg.src, backImg.alt);
+                });
+            }
+
+            // Add a flip-back button to the back of each card
+            const flipBtn = document.createElement('button');
+            flipBtn.className = 'flip-back-btn';
+            flipBtn.textContent = '← flip back';
+            flipBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (lightboxOpen) return;
+                card.classList.remove('flipped');
+            });
+            cardBack.appendChild(flipBtn);
         });
 
         function openLightbox(src, alt) {
@@ -113,13 +146,10 @@
             overlay.appendChild(hint);
             document.body.appendChild(overlay);
 
-            // Prevent body scroll while lightbox is open
             document.body.style.overflow = 'hidden';
 
-            // Close on click anywhere on the overlay
             overlay.addEventListener('click', () => closeLightbox(overlay));
 
-            // Close on Escape key
             const escHandler = (e) => {
                 if (e.key === 'Escape') {
                     closeLightbox(overlay);
@@ -136,8 +166,6 @@
 
             setTimeout(() => {
                 overlay.remove();
-                // Small delay before re-enabling card clicks so the click
-                // that closed the lightbox doesn't immediately flip the card
                 setTimeout(() => { lightboxOpen = false; }, 100);
             }, 250);
         }
