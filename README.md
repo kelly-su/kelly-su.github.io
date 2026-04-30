@@ -10,5 +10,6 @@ Welcome to my **personal website**! This site showcases my projects, experience,
 - **Hosted on:** GitHub Pages
 
 Connect with Me
+
 •	[LinkedIn](https://linkedin.com/in/kellylsu)
 •	Email: klsu@usc.edu | kelly-su@outlook.com
