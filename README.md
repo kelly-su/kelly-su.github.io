@@ -2,7 +2,7 @@
 
 Welcome to my **personal website**! This site showcases my projects, experience, and interests in software engineering and data analysis.
 
-**Live Website:** [kelly-su.github.io/personal-website](https://kelly-su.github.io/)
+**Live Website:** [kelly-su.github.io/](https://kelly-su.github.io/)
 
 ## About the Website
 - **Built with:** HTML, CSS, JavaScript  
