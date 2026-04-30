@@ -62,23 +62,9 @@ body::before {
 header {
   padding: 2.5rem 0 1.5rem;
   text-align: center;
-  background: linear-gradient(
-    180deg,
-    var(--dusty-blue-light) 0%,
-    var(--cream) 100%
-  );
+  background: var(--dusty-blue);
+  border-bottom: 1px solid var(--dusty-blue-dark);
   position: relative;
-}
-
-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 1px;
-  background: var(--border);
 }
 
 header h1 {
@@ -86,7 +72,7 @@ header h1 {
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 0.15em;
-  color: var(--text-primary);
+  color: white;
   margin-bottom: 1.2rem;
   text-transform: uppercase;
 }
@@ -100,7 +86,7 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -112,9 +98,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: var(--text-primary);
-  background-color: rgba(168, 184, 200, 0.15);
-  border-color: var(--dusty-blue-light);
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ─── Main ─── */
@@ -225,20 +211,22 @@ section h2 {
 /* ─── Projects Cards ─── */
 #projects {
   animation: fadeInUp 0.8s ease-out both;
+  max-width: 1060px;
+  margin: 0 auto;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.8rem;
+  gap: 2rem;
   margin: 2rem 0 3.5rem;
 }
 
 .card {
   perspective: 1000px;
-  width: 300px;
-  height: 220px;
+  width: 480px;
+  height: 340px;
   cursor: pointer;
 }
 
@@ -271,7 +259,7 @@ section h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.8rem;
+  padding: 2rem;
   box-shadow: var(--shadow-soft);
   transition: var(--transition);
 }
@@ -289,18 +277,20 @@ section h2 {
   align-items: center;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
+  padding: 0.5rem;
 }
 
 .card-back img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: var(--radius);
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+  cursor: zoom-in;
 }
 
 .card h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 500;
   color: var(--dusty-blue-dark);
   margin-bottom: 0.8rem;
@@ -309,7 +299,7 @@ section h2 {
 
 .card p {
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.7;
   text-align: center;
 }
@@ -318,7 +308,7 @@ section h2 {
 .card-front::after {
   content: 'click to flip';
   position: absolute;
-  bottom: 12px;
+  bottom: 14px;
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -329,6 +319,51 @@ section h2 {
 
 .card:hover .card-front::after {
   opacity: 0.6;
+}
+
+/* ─── Lightbox / Zoom Overlay ─── */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  opacity: 0;
+  animation: lightboxFadeIn 0.3s ease forwards;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 88vh;
+  border-radius: var(--radius);
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+  cursor: default;
+}
+
+.lightbox-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ─── Weather Demo ─── */
@@ -530,7 +565,8 @@ footer {
 
   .card {
     width: 100%;
-    max-width: 340px;
+    max-width: 440px;
+    height: 280px;
   }
 
   #contact-form {
@@ -540,7 +576,8 @@ footer {
 
 @media (min-width: 768px) and (max-width: 991px) {
   .card {
-    width: 45%;
+    width: 46%;
+    height: 300px;
   }
 }
 

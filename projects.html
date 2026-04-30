@@ -74,11 +74,73 @@
     </main>
 
     <script>
+        // Track which card is flipped so we can manage click flow
+        let lightboxOpen = false;
+
         document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
+                // If lightbox is open, don't do anything (lightbox handles its own close)
+                if (lightboxOpen) return;
+
+                const isFlipped = card.classList.contains('flipped');
+
+                // If card is flipped and user clicked the image, open lightbox
+                if (isFlipped && e.target.tagName === 'IMG') {
+                    openLightbox(e.target.src, e.target.alt);
+                    return;
+                }
+
+                // Otherwise toggle the flip
                 card.classList.toggle('flipped');
             });
         });
+
+        function openLightbox(src, alt) {
+            lightboxOpen = true;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox-overlay';
+
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = alt || 'Project screenshot';
+
+            const hint = document.createElement('div');
+            hint.className = 'lightbox-hint';
+            hint.textContent = 'click anywhere or press esc to close';
+
+            overlay.appendChild(img);
+            overlay.appendChild(hint);
+            document.body.appendChild(overlay);
+
+            // Prevent body scroll while lightbox is open
+            document.body.style.overflow = 'hidden';
+
+            // Close on click anywhere on the overlay
+            overlay.addEventListener('click', () => closeLightbox(overlay));
+
+            // Close on Escape key
+            const escHandler = (e) => {
+                if (e.key === 'Escape') {
+                    closeLightbox(overlay);
+                    document.removeEventListener('keydown', escHandler);
+                }
+            };
+            document.addEventListener('keydown', escHandler);
+        }
+
+        function closeLightbox(overlay) {
+            overlay.style.opacity = '0';
+            overlay.style.transition = 'opacity 0.25s ease';
+            document.body.style.overflow = '';
+
+            setTimeout(() => {
+                overlay.remove();
+                // Small delay before re-enabling card clicks so the click
+                // that closed the lightbox doesn't immediately flip the card
+                setTimeout(() => { lightboxOpen = false; }, 100);
+            }, 250);
+        }
     </script>
 </body>
 </html>
