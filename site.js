@@ -1,6 +1,5 @@
 /* ─── site.js ───
-   Page transitions.
-   Include at the bottom of every page.
+   Page transitions, include at the bottom of every page.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
