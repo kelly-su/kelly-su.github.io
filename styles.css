@@ -291,11 +291,30 @@ section h2 {
   padding: 1.5rem;
   box-shadow: var(--shadow-soft);
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dusty-blue-light), var(--dusty-blue), var(--dusty-blue-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-front::before {
+  opacity: 1;
 }
 
 .card:hover .card-front {
   box-shadow: var(--shadow-hover);
   transform: translateY(-4px);
+  border-color: var(--dusty-blue-light);
 }
 
 .card-back {
@@ -313,6 +332,7 @@ section h2 {
 
 .card:hover .card-back {
   box-shadow: var(--shadow-hover);
+  border-color: var(--dusty-blue-light);
 }
 
 .card-back img {
