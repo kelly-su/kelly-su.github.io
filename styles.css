@@ -257,6 +257,11 @@ section h2 {
   width: 100%;
   height: 260px;
   cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
 }
 
 .card-inner {
@@ -291,7 +296,6 @@ section h2 {
   padding: 1.5rem;
   box-shadow: var(--shadow-soft);
   transition: var(--transition);
-  position: relative;
   overflow: hidden;
 }
 
@@ -313,7 +317,6 @@ section h2 {
 
 .card:hover .card-front {
   box-shadow: var(--shadow-hover);
-  transform: translateY(-4px);
   border-color: var(--dusty-blue-light);
 }
 
@@ -436,6 +439,153 @@ section h2 {
   margin-top: 0.5rem;
   font-style: italic;
   line-height: 1.5;
+}
+
+/* ─── Tech Pills ─── */
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.8rem;
+}
+
+.tech-pill {
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dusty-blue-dark);
+  background: var(--dusty-blue-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-family: 'EB Garamond', serif;
+}
+
+[data-theme="dark"] .tech-pill {
+  background: rgba(122, 146, 168, 0.25);
+  color: var(--dusty-blue-dark);
+}
+
+.card-role {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ─── Section Headers ─── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+
+.section-header h1 {
+  margin-bottom: 0;
+}
+
+.section-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--dusty-blue-dark);
+  flex-shrink: 0;
+}
+
+/* ─── Web Dev Link Card ─── */
+#webdev {
+  margin-top: 3rem;
+}
+
+.webdev-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.webdev-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dusty-blue-light), var(--dusty-blue), var(--dusty-blue-light));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.webdev-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  border-color: var(--dusty-blue-light);
+}
+
+.webdev-card:hover::before {
+  opacity: 1;
+}
+
+.webdev-card-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--dusty-blue-dark);
+  margin-bottom: 0.4rem;
+}
+
+.webdev-card-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  max-width: 480px;
+}
+
+.webdev-card-content .tech-pills {
+  justify-content: flex-start;
+}
+
+.webdev-card-arrow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  font-family: 'EB Garamond', serif;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.webdev-card:hover .webdev-card-arrow {
+  color: var(--dusty-blue-dark);
+  transform: translateX(4px);
+}
+
+/* ─── Responsive webdev card ─── */
+@media (max-width: 640px) {
+  .webdev-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .webdev-card-arrow {
+    align-self: flex-end;
+  }
 }
 
 /* "Click to flip" hint on the front */
@@ -707,31 +857,6 @@ footer {
 .footer-social a:hover {
   color: var(--dusty-blue-dark);
   transform: translateY(-2px);
-}
-
-/* ─── More Projects Link ─── */
-.more-projects {
-  text-align: center;
-  margin: 2.5rem 0 1rem;
-}
-
-.more-projects-link {
-  display: inline-block;
-  padding: 0.7rem 1.8rem;
-  font-family: 'EB Garamond', serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  color: var(--dusty-blue-dark);
-  text-decoration: none;
-  border: 1px solid var(--dusty-blue-light);
-  border-radius: 30px;
-  transition: var(--transition);
-}
-
-.more-projects-link:hover {
-  background: var(--dusty-blue-light);
-  color: var(--text-primary);
-  border-color: var(--dusty-blue);
 }
 
 /* ─── Animations ─── */

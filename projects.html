@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Kelly Su's portfolio of projects, including a cafe finder web app, a fitness tracker, and a weather app. Learn about her skills and innovations in web development and AI integration.">
+    <meta name="description" content="Explore Kelly Su's portfolio of projects in software engineering and web development.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -24,19 +24,32 @@
     </header>
 
     <main>
+        <!-- Software Engineering Section -->
         <section id="projects">
-            <h1>My Projects</h1>
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                <h1>Software Engineering</h1>
+            </div>
+
             <div class="card-container">
                 <!-- Card 1 -->
                 <div class="card">
                     <div class="card-inner">
                         <div class="card-front">
-                            <h2>Cafe Finder Web App</h2>
-                            <p>An online platform to discover and review cafes across the greater Los Angeles area.</p>
-                            <p class="card-meta">Solo project · HTML, CSS, JavaScript</p>
+                            <h2>Fitness Tracker</h2>
+                            <p>AI-powered fitness recommendations in a calendar format.</p>
+                            <div class="tech-pills">
+                                <span class="tech-pill">React</span>
+                                <span class="tech-pill">TypeScript</span>
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">OpenAI</span>
+                            </div>
+                            <p class="card-role">Team · User auth & frontend</p>
                         </div>
                         <div class="card-back">
-                            <img src="img/cafe.png" alt="Screenshot of the Cafe Finder Web App interface">
+                            <img src="img/fitness-tracker.png" alt="Screenshot of the Fitness Tracker Calendar App interface">
                         </div>
                     </div>
                 </div>
@@ -45,12 +58,17 @@
                 <div class="card">
                     <div class="card-inner">
                         <div class="card-front">
-                            <h2>Fitness Tracker Calendar</h2>
-                            <p>A web app integrating AI for personalized fitness recommendations displayed in a weekly calendar format.</p>
-                            <p class="card-meta">Team project · Built user registration/login and frontend forms · React, Remix, TypeScript, Python/Flask, OpenAI API</p>
+                            <h2>Weather App</h2>
+                            <p>Real-time weather data by city name or coordinates.</p>
+                            <div class="tech-pills">
+                                <span class="tech-pill">Java</span>
+                                <span class="tech-pill">OpenWeather API</span>
+                                <span class="tech-pill">Google Maps</span>
+                            </div>
+                            <p class="card-role">Solo project</p>
                         </div>
                         <div class="card-back">
-                            <img src="img/fitness-tracker.png" alt="Screenshot of the Fitness Tracker Calendar App interface">
+                            <img src="img/weather.jpg" alt="Screenshot of the Weather App interface">
                         </div>
                     </div>
                 </div>
@@ -59,23 +77,14 @@
                 <div class="card">
                     <div class="card-inner">
                         <div class="card-front">
-                            <h2>Weather App</h2>
-                            <p>A real-time weather application that fetches conditions by city name or coordinates.</p>
-                            <p class="card-meta">Solo project · Java, OpenWeatherMap API, Google Maps API</p>
-                        </div>
-                        <div class="card-back">
-                            <img src="img/weather.jpg" alt="Screenshot of the Weather App interface showing current conditions">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="card">
-                    <div class="card-inner">
-                        <div class="card-front">
                             <h2>ChatPet</h2>
-                            <p>A virtual companion app where users raise, feed, and chat with an AI-powered pet, with a daily journal tracker.</p>
-                            <p class="card-meta">Team project · Built user auth, registration UI, and Firebase data layer · React Native, Firebase, LLM API</p>
+                            <p>Virtual companion app with AI chat and journal tracking.</p>
+                            <div class="tech-pills">
+                                <span class="tech-pill">React Native</span>
+                                <span class="tech-pill">Firebase</span>
+                                <span class="tech-pill">LLM API</span>
+                            </div>
+                            <p class="card-role">Team · User auth & Firebase</p>
                         </div>
                         <div class="card-back card-back-multi">
                             <img src="img/chatpet-login.png" alt="ChatPet login screen">
@@ -85,21 +94,44 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="more-projects">
-                <a href="https://kelly-su.github.io/webdev-projects/index.html" target="_blank" class="more-projects-link">
-                    View More Web Dev Projects →
-                </a>
+        <!-- Web Development Section -->
+        <section id="webdev">
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <h1>Web Development</h1>
             </div>
 
-            <section id="weather-demo" class="scroll-fade">
-                <h2>Weather App Video Demonstration</h2>
-                <video controls width="800">
-                    <source src="video/weatherapp_demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p>This video demonstrates the functionality of the Weather App. Users can input a city name or latitude/longitude coordinates to retrieve real-time weather data.</p>
-            </section>
+            <a href="https://kelly-su.github.io/webdev-projects/index.html" target="_blank" class="webdev-card">
+                <div class="webdev-card-content">
+                    <h2>Front-End Projects</h2>
+                    <p>Interactive games, styled layouts, photo galleries, and more — built with HTML, CSS, and JavaScript.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">HTML</span>
+                        <span class="tech-pill">CSS</span>
+                        <span class="tech-pill">JavaScript</span>
+                    </div>
+                </div>
+                <div class="webdev-card-arrow">
+                    <span>View Projects</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- Weather Demo -->
+        <section id="weather-demo">
+            <h2>Weather App Demo</h2>
+            <video controls width="800">
+                <source src="video/weatherapp_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Users can input a city name or coordinates to retrieve real-time weather data.</p>
         </section>
     </main>
 
@@ -124,13 +156,11 @@
             const cardFront = card.querySelector('.card-front');
             const backImg = cardBack?.querySelector('img');
 
-            // Clicking the front flips to back
             cardFront.addEventListener('click', () => {
                 if (lightboxOpen) return;
                 card.classList.add('flipped');
             });
 
-            // Clicking the image on the back opens lightbox
             if (backImg) {
                 backImg.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -139,7 +169,6 @@
                 });
             }
 
-            // Add a flip-back button to the back of each card
             const flipBtn = document.createElement('button');
             flipBtn.className = 'flip-back-btn';
             flipBtn.textContent = '←';
@@ -153,26 +182,19 @@
 
         function openLightbox(src, alt) {
             lightboxOpen = true;
-
             const overlay = document.createElement('div');
             overlay.className = 'lightbox-overlay';
-
             const img = document.createElement('img');
             img.src = src;
             img.alt = alt || 'Project screenshot';
-
             const hint = document.createElement('div');
             hint.className = 'lightbox-hint';
             hint.textContent = 'click anywhere or press esc to close';
-
             overlay.appendChild(img);
             overlay.appendChild(hint);
             document.body.appendChild(overlay);
-
             document.body.style.overflow = 'hidden';
-
             overlay.addEventListener('click', () => closeLightbox(overlay));
-
             const escHandler = (e) => {
                 if (e.key === 'Escape') {
                     closeLightbox(overlay);
@@ -186,7 +208,6 @@
             overlay.style.opacity = '0';
             overlay.style.transition = 'opacity 0.25s ease';
             document.body.style.overflow = '';
-
             setTimeout(() => {
                 overlay.remove();
                 setTimeout(() => { lightboxOpen = false; }, 100);
