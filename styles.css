@@ -1009,6 +1009,17 @@ footer {
   letter-spacing: 0.03em;
   text-align: center;
   margin: 0 auto;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.education-degree {
+  display: block;
+  color: var(--text-primary);
+}
+
+.education-degree + .education-degree {
+  margin-top: 0.3rem;
 }
 
 #welcome .career-title,
