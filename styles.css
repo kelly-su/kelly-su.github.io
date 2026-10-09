@@ -88,7 +88,7 @@ header {
   position: relative;
 }
 
-header h1 {
+header .site-name {
   font-family: 'Cormorant Garamond', 'EB Garamond', serif;
   font-size: 2rem;
   font-weight: 300;
@@ -877,7 +877,7 @@ footer {
     font-size: 15px;
   }
 
-  header h1 {
+  header .site-name {
     font-size: 1.5rem;
     letter-spacing: 0.1em;
   }
@@ -978,7 +978,17 @@ footer {
   50% { border-right-color: transparent; }
 }
 
-.welcome-subtitle {
+#welcome .career-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--dusty-blue-dark);
+  letter-spacing: 0.04em;
+  margin: 0.5rem auto 0.8rem;
+}
+
+.welcome-subtitle,
+#welcome .intro-subtitle {
   font-family: 'EB Garamond', serif;
   font-size: 1.05rem;
   color: var(--text-secondary);
@@ -986,6 +996,13 @@ footer {
   letter-spacing: 0.03em;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 2s forwards;
+}
+
+#welcome .intro-subtitle {
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* ─── Skills Marquee ─── */
@@ -1119,6 +1136,15 @@ footer {
 
 /* ─── Responsive additions ─── */
 @media (max-width: 767px) {
+  #welcome .career-title {
+    font-size: 1rem;
+  }
+
+  #welcome .intro-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
   .typewriter-text {
     font-size: 2rem;
   }
