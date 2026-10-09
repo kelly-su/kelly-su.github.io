@@ -978,17 +978,20 @@ footer {
   50% { border-right-color: transparent; }
 }
 
+#welcome .typewriter-text {
+  margin-bottom: 0.5rem;
+}
+
 #welcome .career-title {
   font-family: 'EB Garamond', serif;
   font-size: 1.1rem;
   font-style: italic;
   color: var(--dusty-blue-dark);
   letter-spacing: 0.04em;
-  margin: 0.5rem auto 0.8rem;
+  margin: 0 auto 0.4rem;
 }
 
-.welcome-subtitle,
-#welcome .intro-subtitle {
+.welcome-subtitle {
   font-family: 'EB Garamond', serif;
   font-size: 1.05rem;
   color: var(--text-secondary);
@@ -999,10 +1002,26 @@ footer {
 }
 
 #welcome .intro-subtitle {
+  font-family: 'EB Garamond', serif;
   font-size: 1rem;
+  color: var(--text-secondary);
   line-height: 1.8;
+  letter-spacing: 0.03em;
   text-align: center;
   margin: 0 auto;
+}
+
+#welcome .career-title,
+#welcome .intro-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+#welcome.intro-pending .career-title,
+#welcome.intro-pending .intro-subtitle {
+  opacity: 0;
+  transform: translateY(6px);
 }
 
 /* ─── Skills Marquee ─── */

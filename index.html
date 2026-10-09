@@ -108,6 +108,8 @@
         const typewriterEl = document.getElementById('typewriter');
         const fullText = "Hi, I'm Kelly.";
         let charIndex = 0;
+        const welcomeEl = document.getElementById('welcome');
+        welcomeEl.classList.add('intro-pending');
 
         function typeNext() {
             if (charIndex < fullText.length) {
@@ -115,6 +117,7 @@
                 charIndex++;
                 setTimeout(typeNext, 90 + Math.random() * 60);
             } else {
+                welcomeEl.classList.remove('intro-pending');
                 // Remove blinking cursor after typing finishes
                 setTimeout(() => {
                     typewriterEl.classList.add('typing-done');
